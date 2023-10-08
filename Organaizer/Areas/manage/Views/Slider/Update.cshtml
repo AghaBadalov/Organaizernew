@@ -1,0 +1,37 @@
+﻿@model Slider
+
+<div class="col-sm-12 col-xl-6">
+    <div class="bg-light rounded h-100 p-4">
+
+        <form method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label asp-for="Name" class="form-label">Sliderin adı</label>
+                <input asp-for="Name" class="form-control">
+                <span asp-validation-for="Name" class="text-danger"></span>
+
+            </div>
+            <div class="mb-3">
+                <label asp-for="Desc" class="form-label">Tərif</label>
+                <input asp-for="Desc" class="form-control">
+                <span asp-validation-for="Desc" class="text-danger"></span>
+
+            </div>
+            <div class="mb-3">
+                <label asp-for="Card" class="form-label">Kart yazısı</label>
+                <input asp-for="Card" class="form-control">
+                <span asp-validation-for="Card" class="text-danger"></span>
+
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="ImageFile" class="form-label">Şəkili seçin</label>
+                <input asp-for="ImageFile" class="form-control">
+                <span asp-validation-for="ImageFile" class="text-danger"></span>
+
+            </div>
+            <button type="submit" class="btn btn-primary" class="text-danger">Yenilə</button>
+            <a asp-action="index" asp-controller="slider" class="btn btn-secondary" class="text-danger">Geri</a>
+        </form>
+    </div>
+</div>
+

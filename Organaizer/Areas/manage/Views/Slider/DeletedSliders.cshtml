@@ -1,0 +1,70 @@
+﻿@model PaginatedList<Slider>
+@{
+    int counter = ((Model.ActivePage - 1) * 6);
+}
+
+<div class="col-12">
+    <div class="bg-light rounded h-100 p-4">
+        <h6 class="mb-4">Sliders</h6>
+        <div class="table-responsive">
+            
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Slider Adı</th>
+                        <th scope="col">Slider Təsviri</th>
+                        <th scope="col">Kart Adı</th>
+                        <th scope="col">Şəkil</th>
+                        <th scope="col">Fəaliyyətlər</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Slider slider in Model)
+                    {
+                        counter++;
+                        <tr>
+                            <th scope="row">@counter</th>
+                            <td>@slider.Name</td>
+                            <td>@slider.Desc</td>
+                            <td>@slider.Card</td>
+                            <td>
+                                <div><img style="max-width:100px" src="~/uploads/sliders/@slider.ImageUrl" alt=""></div>
+                            </td>
+                            <td>
+                                <a asp-action="repair" asp-controller="slider" asp-route-id="@slider.Id" class="btn btn-warning m-2">Görünən et</a>
+
+                                <a asp-action="harddelete" asp-controller="slider" asp-route-id="@slider.Id" class="btn btn-danger m-2">Sil</a>
+                            </td>
+
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div style="margin-left:500px">
+    <form>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                @if (Model.HasPrevious)
+                {
+                    <li class="page-item"><a class="page-link" asp-action="index" asp-route-page="@(Model.ActivePage-1)">Previous</a></li>
+                }
+                @for (int i = 1; i <= Model.TotalPageCount; i++)
+                {
+                    <li class="page-item @((Model.ActivePage==i)? "active" : "")"><a class="page-link" asp-route-page="@i">@i</a></li>
+                }
+
+                @if (Model.HAsNext)
+                {
+                    <li class="page-item"><a class="page-link" asp-action="index" asp-route-page="@(Model.ActivePage+1)">Next</a></li>
+                }
+            </ul>
+        </nav>
+    </form>
+</div>
+

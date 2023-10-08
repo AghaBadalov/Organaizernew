@@ -1,0 +1,26 @@
+﻿@model Setting
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+
+        <div class="col-sm-12 col-xl-12">
+            <div class="bg-light rounded h-100 p-4">
+
+                <form method="post">
+                    <div class="mb-3">
+                        <label asp-for="Value" class="form-label">@Model.Key</label>
+                        <input asp-for="Value" class="form-control">
+                        <span asp-validation-for="Value" class="text-danger"></span>
+
+                    </div>
+
+
+                    <button type="submit" class="btn btn-primary">Yenilə</button>
+                    <a asp-action="index" asp-controller="setting" class="btn btn-secondary" class="text-danger">Geri</a>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,78 @@
+﻿@using OrganaizerShop.Models
+@model PaginatedList<OrganaizerModel>
+@{
+    int counter = ((Model.ActivePage - 1) * 6);
+}
+@section Js{
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.1/sweetalert2.min.css" integrity="sha512-NvuRGlPf6cHpxQqBGnPe7fPoACpyrjhlSNeXVUY7BZAj1nNhuNpRBq3osC4yr2vswUEuHq2HtCsY2vfLNCndYA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+}
+<div class="col-12">
+    <div class="bg-light rounded h-100 p-4">
+        <h6 class="mb-4">Organaizerlər</h6>
+        <div class="table-responsive">
+            
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Adı</th>
+                        <th scope="col">Qiyməti</th>
+                        <th scope="col">Sayı</th>
+                        <th scope="col">Qapaq Şəkli</th>
+                        <th scope="col">Fəaliyyətlər</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (OrganaizerModel org in Model)
+                    {
+                        counter++;
+                        <tr>
+                            <th scope="row">@counter</th>
+                            <td>@org.Name</td>
+                            <td>@org.Price</td>
+                            <td>@org.Count</td>
+                            <td>
+                                @*<div><img style="max-width:100px" src="~/uploads/organaizers/@org.OrganaizerImages.FirstOrDefault(x=>x.IsPoster==true).ImageUrl" alt=" "></div>*@
+                            </td>
+                            <td>
+                                <a asp-action="reactive" asp-controller="organaizermodel" asp-route-id="@org.Id" class="btn btn-warning m-2">Aktivləşdir</a>
+
+                                <a asp-action="delete" asp-controller="organaizermodel" asp-route-id="@org.Id" class="btn btn-danger  m-2 delete-button">Sil</a>
+                                <a asp-action="details" asp-controller="organaizermodel" asp-route-id="@org.Id" class="btn btn-info m-2">Ətraflı</a>
+                            </td>
+
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div style="margin-left:500px">
+    <form>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                @if (Model.HasPrevious)
+                {
+                    <li class="page-item"><a class="page-link" asp-action="index" asp-route-page="@(Model.ActivePage-1)">Previous</a></li>
+                }
+                @for (int i = 1; i <= Model.TotalPageCount; i++)
+                {
+                    <li class="page-item @((Model.ActivePage==i)? "active" : "")"><a class="page-link" asp-route-page="@i">@i</a></li>
+                }
+
+                @if (Model.HAsNext)
+                {
+                    <li class="page-item"><a class="page-link" asp-action="index" asp-route-page="@(Model.ActivePage+1)">Next</a></li>
+                }
+            </ul>
+        </nav>
+    </form>
+</div>
+
+
+@section Script{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.1/sweetalert2.min.js" integrity="sha512-vCI1Ba/Ob39YYPiWruLs4uHSA3QzxgHBcJNfFMRMJr832nT/2FBrwmMGQMwlD6Z/rAIIwZFX8vJJWDj7odXMaw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+}

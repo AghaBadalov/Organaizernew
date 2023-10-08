@@ -1,0 +1,59 @@
+﻿@model PaginatedList<Setting>
+
+@{
+    int counter = ((Model.ActivePage - 1) * 6);
+}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            
+            <th scope="col">Key</th>
+            <th scope="col">Value</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Setting settings in Model)
+        {
+            counter++;
+            <tr>
+                <th scope="row">@counter</th>
+                
+                <td>@settings.Key</td>
+                <td>@settings.Value</td>
+                
+                   
+                
+                
+                <td>
+                    
+                    <a asp-action="update" asp-controller="setting" asp-route-id="@settings.Id" class="btn btn-outline-warning m-2">Update</a>
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+</table>
+<div style="margin-left:500px">
+    <form>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                @if (Model.HasPrevious)
+                {
+                    <li class="page-item"><a class="page-link" asp-action="index" asp-route-page="@(Model.ActivePage-1)">Previous</a></li>
+                }
+                @for (int i = 1; i <= Model.TotalPageCount; i++)
+                {
+                    <li class="page-item @((Model.ActivePage==i)? "active" : "")"><a class="page-link" asp-route-page="@i">@i</a></li>
+                }
+
+                @if (Model.HAsNext)
+                {
+                    <li class="page-item"><a class="page-link" asp-action="index" asp-route-page="@(Model.ActivePage+1)">Next</a></li>
+                }
+            </ul>
+        </nav>
+    </form>
+</div>

@@ -1,0 +1,76 @@
+﻿@using OrganaizerShop.Models
+@model OrganaizerModel
+
+<div class="col-sm-12 col-xl-6">
+    <div class="bg-light rounded h-100 p-4">
+
+        <form method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label asp-for="Name" class="form-label">Adı</label>
+                <input asp-for="Name" class="form-control">
+                <span asp-validation-for="Name" class="text-danger"></span>
+
+            </div>
+            <div class="mb-3">
+                <label asp-for="Desc" class="form-label">Ətraflı məlumat</label>
+                <input asp-for="Desc" class="form-control">
+                <span asp-validation-for="Desc" class="text-danger"></span>
+
+            </div>
+            <div class="mb-3">
+                <label asp-for="Type" class="form-label">Tip</label>
+                <input asp-for="Type" class="form-control">
+                <span asp-validation-for="Type" class="text-danger"></span>
+
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Color" class="form-label">Rəng</label>
+                <input asp-for="Color" class="form-control">
+                <span asp-validation-for="Color" class="text-danger"></span>
+
+            </div>
+            <div class="mb-3">
+                <label asp-for="Purpose" class="form-label">İşlənmə məqsədi</label>
+                <input asp-for="Purpose" class="form-control">
+                <span asp-validation-for="Purpose" class="text-danger"></span>
+
+            </div>
+            <div class="mb-3">
+                <label asp-for="Count" class="form-label">Sayı</label>
+                <input asp-for="Count" class="form-control">
+                <span asp-validation-for="Count" class="text-danger"></span>
+
+            </div>
+            <div class="mb-3">
+                <label asp-for="Price" class="form-label">Qiymət</label>
+                <input asp-for="Price" class="form-control">
+                <span asp-validation-for="Price" class="text-danger"></span>
+
+            </div>
+            <div class="mb-3">
+                <label asp-for="Discount" class="form-label">Endirim</label>
+                <input asp-for="Discount" class="form-control">
+                <span asp-validation-for="Discount" class="text-danger"></span>
+
+            </div>
+
+
+            <div class="mb-3">
+                <label asp-for="PosterImage" class="form-label"> Qapaq Şəkili seçin</label>
+                <input asp-for="PosterImage" class="form-control">
+                <span asp-validation-for="PosterImage" class="text-danger"></span>
+
+            </div>
+            <div class="mb-3">
+                <label asp-for="Images" class="form-label">Şəkilləri seçin</label>
+                <input asp-for="Images" class="form-control">
+                <span asp-validation-for="Images" class="text-danger"></span>
+
+            </div>
+            <button type="submit" class="btn btn-primary" class="text-danger">Yarat</button>
+            <a asp-action="index" asp-controller="organaizermodel" class="btn btn-secondary" class="text-danger">Geri</a>
+        </form>
+    </div>
+</div>
+

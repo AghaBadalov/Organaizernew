@@ -1,0 +1,66 @@
+﻿@using OrganaizerShop.Models
+@model List<OrganaizerModel>
+<section class="ftco-section bg-light">
+    <div class="container">
+        <div class="row justify-content-center mb-3 pb-3">
+            <div class="col-md-12 heading-section text-center ftco-animate">
+                <h2 class="mb-4">Organaizerlər</h2>
+                <p>İstədiyiniz Organaizeri seçin</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            
+
+
+
+
+
+           @foreach (var item in Model)
+           {
+                <div class="col-sm-12 col-md-6 col-lg-3 ftco-animate d-flex">
+                    <div class="product d-flex flex-column">
+                        <a asp-action="detail" asp-controller="shop" asp-route-id="@item.Id" class="img-prod">
+                            <img class="img-fluid" src="~/uploads/organaizers/@item.OrganaizerImages.FirstOrDefault(x=>x.IsPoster==true).ImageUrl" alt="Colorlib Template" style="height:500px">
+                            @if (item.Discount>0)
+                            {
+                                <span class="status">@item.Discount% Endirim</span>
+
+                            }
+                            <div class="overlay"></div>
+                        </a>
+                        <div class="text py-3 pb-4 px-3">
+                            <div class="d-flex">
+                                <div class="cat">
+                                    <span>Organaizer</span>
+                                </div>
+
+                            </div>
+                            <h3><a href="#">@item.Name</a></h3>
+                           @if (item.Discount>0)
+                           {
+                                <div class="pricing">
+                                    <p class="price"><span class="mr-2 price-dc">@item.Price AZN</span><span class="price-sale">@item.LPrice AZN</span></p>
+                                </div>
+                           }
+                           else
+                            {
+                            <div class="pricing">
+                                <p class="price"><span class="price-sale">@item.LPrice AZN</span></p>
+                            </div>
+                            }
+                            
+                            <p class="bottom-area d-flex px-3">
+                                <a asp-action="addtobasket" asp-controller="shop" asp-route-id="@item.Id" class="add-to-cart text-center py-2 mr-1"><span>Səbətə əlavə et <i class="ion-ios-add ml-1"></i></span></a>
+                                <a href="#" class="buy-now text-center py-2">Indi al<span><i class="ion-ios-cart ml-1"></i></span></a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+        </div>
+    </div>
+</section>

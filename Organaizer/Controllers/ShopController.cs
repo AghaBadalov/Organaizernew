@@ -30,78 +30,81 @@ namespace Organaizer.Controllers
         }
         public async Task<IActionResult> AddToBasket(int id)
         {
-            OrganaizerModel Org = _context.Organaizers.Include(x=>x.OrganaizerImages).FirstOrDefault(x => x.Id == id);
-            if (Org is null) return View("Error");
-            AppUser user = null;
-            if (User.Identity.IsAuthenticated is true)
+            if (!_userService.IsUserAuthenticated())
             {
-                user = await _userService.GetUser();
+                return RedirectToAction("login", "account");
+            }
+            var user = await _userService.GetUser();
+
+            var basket = _context.Baskets.FirstOrDefault(x => x.AppUserId == user.Id);
+            if (basket is null)
+            {
+                basket = new Basket
+                {
+                    AppUserId = user.Id
+                };
+                _context.Baskets.Add(basket);
+            }
+            var org = _context.Organaizers.FirstOrDefault(x => x.Id == id);
+            if (org is null) return View("error");
+
+            BasketItem basketItem = _context.BasketItems.FirstOrDefault(x => x.OrganaizerModelId == org.Id && x.Basket == basket);
+            if (basketItem is null)
+            {
+                basketItem = new BasketItem
+                {
+                    Basket = basket,
+                    OrganaizerModelId = org.Id,
+                    Count = 1
+
+                };
+                _context.BasketItems.Add(basketItem);
             }
             else
             {
-                return RedirectToAction("login", "account");
-
+                basketItem.Count += 1;
             }
-            BasketItem basketItem = new BasketItem
-            {
-                
-            };
-            
-            //Basket basket = _context.Baskets.Where(x=>x.IsActive==true).FirstOrDefault(x => x.AppUserId == user.Id);
-            //if (basket != null)
-            //{
+            _context.SaveChanges();
 
-            //    basket.BasketItems.Add(basketItem);
-            //}
-            //else
-            //{
-            //    Basket newbasket = new Basket
-            //    {
-            //        IsActive = true,
-            //        AppUserId = user.Id,
-                    
-            //    };
-            //    newbasket.BasketItems.Add(basketItem);
 
-            //}
-
-            //List<BasketItem> basketItems = new List<BasketItem>();
-            //BasketItem basketItem = null;
-            //if(Org is not null && Org.Count > 0)
-            //{
-            //    basketItem = new BasketItem
-            //    {
-            //        OrganaizerModelId = id,
-            //        Count = 1,
-                    
-
-            //    };
-            //    basketItems.Add(basketItem);
-            //}
 
             return RedirectToAction("index","home");
         }
         public async Task<IActionResult> Cart()
-        
         {
-            //Basket basket = new Basket();
-            AppUser user = null;
-            if (User.Identity.IsAuthenticated is true)
+            var user = await _userService.GetUser();
+            if (user is null)
             {
-                user = await _userService.GetUser();
+                return RedirectToAction("login", "account");
             }
-            else
-            {
-                return RedirectToAction("login","account");
-            }
-            //if(user is not null)
-            //{
-            //    basket.AppUserId = user.Id;
-            //}
+        
             
+            var cartViewModel = new CartViewModel();
+            var basketitems = _context.BasketItems.Where(x => x.Basket.AppUserId == user.Id && x.IsOrdered == false)
+                .Select(x => new CartViewModel.BasketItemViewModel
+                {
+                    Color = x.OrganaizerModel.Color,
+                    OrganaizerModelId = x.OrganaizerModelId,
+                    OrganaizerName = x.OrganaizerModel.Name,
+                    Discount=x.OrganaizerModel.Discount,
+                    Price = x.OrganaizerModel.Price,
+                    TotalPrice= (x.Count * x.OrganaizerModel.Price).Value,
+                    
+                    ProductPrice = x.OrganaizerModel.LPrice,
+                    ProductCount = x.Count,
+                    ImageUrl = x.OrganaizerModel.OrganaizerImages.FirstOrDefault(a => a.OrganaizerModelId == x.OrganaizerModelId).ImageUrl,
+                    ProductTotal = (x.Count * x.OrganaizerModel.LPrice).Value,
+                    ProductName=x.OrganaizerModel.Name
+                    
+                }
+            ).ToList();
+            cartViewModel.BasketItems = basketitems;
+            cartViewModel.Total = basketitems.Sum(x => x.ProductPrice * x.ProductCount).Value;
+            cartViewModel.LTotal = basketitems.Sum(x => x.Price * x.ProductCount).Value;
 
-            return View()
-;        }
+
+            return View(cartViewModel);
+            ;        }
 
     }
 }

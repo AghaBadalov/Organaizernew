@@ -226,6 +226,25 @@ namespace Organaizer.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Organaizer.Models.Basket", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("AppUserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.ToTable("Baskets");
+                });
+
             modelBuilder.Entity("Organaizer.Models.BasketItem", b =>
                 {
                     b.Property<int>("Id")
@@ -234,10 +253,23 @@ namespace Organaizer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("Count")
+                    b.Property<int>("BasketId")
+                        .HasColumnType("int");
+
+                    b.Property<double?>("Count")
+                        .HasColumnType("float");
+
+                    b.Property<bool>("IsOrdered")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("OrganaizerModelId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("BasketId");
+
+                    b.HasIndex("OrganaizerModelId");
 
                     b.ToTable("BasketItems");
                 });
@@ -324,11 +356,11 @@ namespace Organaizer.Migrations
 
             modelBuilder.Entity("OrganaizerShop.Models.OrganaizerModel", b =>
                 {
-                    b.Property<int?>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Color")
                         .IsRequired()
@@ -434,6 +466,36 @@ namespace Organaizer.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Organaizer.Models.Basket", b =>
+                {
+                    b.HasOne("Organaizer.Models.AppUser", "AppUser")
+                        .WithMany("Baskets")
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AppUser");
+                });
+
+            modelBuilder.Entity("Organaizer.Models.BasketItem", b =>
+                {
+                    b.HasOne("Organaizer.Models.Basket", "Basket")
+                        .WithMany("BasketItems")
+                        .HasForeignKey("BasketId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("OrganaizerShop.Models.OrganaizerModel", "OrganaizerModel")
+                        .WithMany("BasketItems")
+                        .HasForeignKey("OrganaizerModelId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Basket");
+
+                    b.Navigation("OrganaizerModel");
+                });
+
             modelBuilder.Entity("OrganaizerShop.Models.OrganaizerImages", b =>
                 {
                     b.HasOne("OrganaizerShop.Models.OrganaizerModel", "OrganaizerModel")
@@ -443,9 +505,21 @@ namespace Organaizer.Migrations
                     b.Navigation("OrganaizerModel");
                 });
 
+            modelBuilder.Entity("Organaizer.Models.Basket", b =>
+                {
+                    b.Navigation("BasketItems");
+                });
+
             modelBuilder.Entity("OrganaizerShop.Models.OrganaizerModel", b =>
                 {
+                    b.Navigation("BasketItems");
+
                     b.Navigation("OrganaizerImages");
+                });
+
+            modelBuilder.Entity("Organaizer.Models.AppUser", b =>
+                {
+                    b.Navigation("Baskets");
                 });
 #pragma warning restore 612, 618
         }

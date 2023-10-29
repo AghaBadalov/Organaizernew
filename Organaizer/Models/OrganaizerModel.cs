@@ -8,7 +8,7 @@ namespace OrganaizerShop.Models
 {
     public class OrganaizerModel
     {
-        public int? Id { get; set; }
+        public int Id { get; set; }
         public int Count { get; set; }
         public bool IsDeleted { get; set; }
         [StringLength(maximumLength:25)]
@@ -29,7 +29,7 @@ namespace OrganaizerShop.Models
                 return Price ;
             }
         }
-        public int Price { get; set; }
+        public double Price { get; set; }
         [StringLength(maximumLength: 45)]
 
         public string Type { get; set; }
@@ -48,6 +48,7 @@ namespace OrganaizerShop.Models
         public List<IFormFile>? Images { get; set; }
         [NotMapped]
         public List<int>? OrgImagesIds { get; set; }
+        public List<BasketItem>? BasketItems { get; set; }
         
 
     }

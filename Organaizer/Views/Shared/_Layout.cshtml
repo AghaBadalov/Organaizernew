@@ -69,7 +69,6 @@
                         <div class="dropdown-menu" aria-labelledby="dropdown04">
                             <a class="dropdown-item" asp-action="index" asp-controller="shop">Organaizerlər</a>
                             <a class="dropdown-item" asp-action="cart" asp-controller="shop">Səbət</a>
-                            <a class="dropdown-item" href="cart.html"></a>
                             <a class="dropdown-item" href="checkout.html">Checkout</a>
                         </div>
                     </li>
@@ -92,16 +91,8 @@
                         
                     
                     <li class="nav-item dropdown">
-                        @*<li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-                        @if(User.Identity.IsAuthenticated){
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@User.Identity.Name</a>
-                            <a class="dropdown-item" asp-action="logout" asp-controller="account">Çıxış Et</a>
-                        }
-                        else{
-                            <li class="nav-item"><a asp-action="login" asp-controller="account" class="nav-link">Giriş * Qeydiyyat</a></li>
-                        }*@
-                        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-                        <li class="nav-item cta cta-colored"><a href="cart.html" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
+                       
+                        <li class="nav-item cta cta-colored"><a asp-action="cart" asp-controller="shop" class="nav-link"><span class="icon-shopping_cart"></span></a></li>
                     </li>
                 </ul>
             </div>
@@ -110,62 +101,7 @@
     <!-- END nav -->
 
 @RenderBody()
-    <section class="ftco-gallery">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-8 heading-section text-center mb-4 ftco-animate">
-                    <h2 class="mb-4">Follow Us On Instagram</h2>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in</p>
-                </div>
-            </div>
-        </div>
-        <div class="container-fluid px-0">
-            <div class="row no-gutters">
-                <div class="col-md-4 col-lg-2 ftco-animate">
-                    <a href="~/assets/images/gallery-1.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(../assets/images/gallery-1.jpg);">
-                        <div class="icon mb-4 d-flex align-items-center justify-content-center">
-                            <span class="icon-instagram"></span>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4 col-lg-2 ftco-animate">
-                    <a href="~/assets/images/gallery-2.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(../assets/images/gallery-2.jpg);">
-                        <div class="icon mb-4 d-flex align-items-center justify-content-center">
-                            <span class="icon-instagram"></span>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4 col-lg-2 ftco-animate">
-                    <a href="~/assets/images/gallery-3.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(../assets/images/gallery-3.jpg);">
-                        <div class="icon mb-4 d-flex align-items-center justify-content-center">
-                            <span class="icon-instagram"></span>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4 col-lg-2 ftco-animate">
-                    <a href="~/assets/images/gallery-4.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(../assets/images/gallery-4.jpg);">
-                        <div class="icon mb-4 d-flex align-items-center justify-content-center">
-                            <span class="icon-instagram"></span>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4 col-lg-2 ftco-animate">
-                    <a href="~/assets/images/gallery-5.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(../assets/images/gallery-5.jpg);">
-                        <div class="icon mb-4 d-flex align-items-center justify-content-center">
-                            <span class="icon-instagram"></span>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4 col-lg-2 ftco-animate">
-                    <a href="~/assets/images/gallery-6.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(../assets/images/gallery-6.jpg);">
-                        <div class="icon mb-4 d-flex align-items-center justify-content-center">
-                            <span class="icon-instagram"></span>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+    
 
     <footer class="ftco-footer ftco-section">
         <div class="container">
@@ -192,33 +128,15 @@
                     <div class="ftco-footer-widget mb-4 ml-md-5">
                         <h2 class="ftco-heading-2">Menu</h2>
                         <ul class="list-unstyled">
-                            <li><a href="#" class="py-2 d-block">Shop</a></li>
-                            <li><a href="#" class="py-2 d-block">About</a></li>
-                            <li><a href="#" class="py-2 d-block">Journal</a></li>
-                            <li><a href="#" class="py-2 d-block">Contact Us</a></li>
+                            <li><a asp-action="index" asp-controller="shop" class="py-2 d-block">Mağaza</a></li>
+                            
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="ftco-footer-widget mb-4">
-                        <h2 class="ftco-heading-2">Help</h2>
-                        <div class="d-flex">
-                            <ul class="list-unstyled mr-l-5 pr-l-3 mr-4">
-                                <li><a href="#" class="py-2 d-block">Shipping Information</a></li>
-                                <li><a href="#" class="py-2 d-block">Returns &amp; Exchange</a></li>
-                                <li><a href="#" class="py-2 d-block">Terms &amp; Conditions</a></li>
-                                <li><a href="#" class="py-2 d-block">Privacy Policy</a></li>
-                            </ul>
-                            <ul class="list-unstyled">
-                                <li><a href="#" class="py-2 d-block">FAQs</a></li>
-                                <li><a href="#" class="py-2 d-block">Contact</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                
                 <div class="col-md">
                     <div class="ftco-footer-widget mb-4">
-                        <h2 class="ftco-heading-2">Have a Questions?</h2>
+                        <h2 class="ftco-heading-2">Bizimlə Əlaqə</h2>
                         <div class="block-23 mb-3">
                             <ul>
                                 <li><a href="https://www.google.com/maps/place/ @(settings.FirstOrDefault(x => x.Key == "Location")?.Value)"><span class="icon icon-map-marker"></span><span class="text">@(settings.FirstOrDefault(x => x.Key == "Location")?.Value)</span></a></li>

@@ -7,5 +7,6 @@ namespace Organaizer.Models
     {
         [StringLength(maximumLength:200)]
         public string? ConfirmationToken { get; set; }
+        public List<Basket> Baskets { get; set; }
     }
 }

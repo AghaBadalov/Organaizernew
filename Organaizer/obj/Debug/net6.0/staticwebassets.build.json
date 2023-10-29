@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "oM9/VQfUs2ErVfNncWCy6Fe+wYfTkH0MwfiFsv9gJ8I=",
+  "Hash": "uvStv/o3Y2YdBOQAfykT8QI1oJaydC1NU23bL7C+15Q=",
   "Source": "Organaizer",
   "BasePath": "_content/Organaizer",
   "Mode": "Default",
@@ -5508,6 +5508,23 @@
       "OriginalItemSpec": "wwwroot\\uploads\\organaizers\\16f234ef-ac03-4cf5-b12b-eb47e4ae4bcdMetroooooooooo.png"
     },
     {
+      "Identity": "C:\\Users\\lenovo\\OneDrive\\Desktop\\Organaizer\\Organaizer\\Organaizer\\wwwroot\\uploads\\organaizers\\1ec39eaf-c327-4650-bc1f-9986483b6240download.jpeg",
+      "SourceId": "Organaizer",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\lenovo\\OneDrive\\Desktop\\Organaizer\\Organaizer\\Organaizer\\wwwroot\\",
+      "BasePath": "_content/Organaizer",
+      "RelativePath": "uploads/organaizers/1ec39eaf-c327-4650-bc1f-9986483b6240download.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\organaizers\\1ec39eaf-c327-4650-bc1f-9986483b6240download.jpeg"
+    },
+    {
       "Identity": "C:\\Users\\lenovo\\OneDrive\\Desktop\\Organaizer\\Organaizer\\Organaizer\\wwwroot\\uploads\\organaizers\\1ec710f9-8f61-46cf-9cbf-de1a9c9bc0d8Screenshot 2023-06-12 195403.png",
       "SourceId": "Organaizer",
       "SourceType": "Discovered",
@@ -5642,6 +5659,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\organaizers\\2fd5f055-144f-4780-8770-70b2a2e66b11download.jpeg"
+    },
+    {
+      "Identity": "C:\\Users\\lenovo\\OneDrive\\Desktop\\Organaizer\\Organaizer\\Organaizer\\wwwroot\\uploads\\organaizers\\339f73c2-af9c-40d4-9ef4-40f5da06026agallery-2-removebg-preview.png",
+      "SourceId": "Organaizer",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\lenovo\\OneDrive\\Desktop\\Organaizer\\Organaizer\\Organaizer\\wwwroot\\",
+      "BasePath": "_content/Organaizer",
+      "RelativePath": "uploads/organaizers/339f73c2-af9c-40d4-9ef4-40f5da06026agallery-2-removebg-preview.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\organaizers\\339f73c2-af9c-40d4-9ef4-40f5da06026agallery-2-removebg-preview.png"
     },
     {
       "Identity": "C:\\Users\\lenovo\\OneDrive\\Desktop\\Organaizer\\Organaizer\\Organaizer\\wwwroot\\uploads\\organaizers\\3565469e-4e60-445d-a8c4-29cd7e63f6a5Screenshot 2023-05-22 011618.png",
@@ -5967,6 +6001,23 @@
       "OriginalItemSpec": "wwwroot\\uploads\\organaizers\\7b83aa56-4443-4ea7-ad56-36e5560f0695Screenshot 2023-05-22 011618.png"
     },
     {
+      "Identity": "C:\\Users\\lenovo\\OneDrive\\Desktop\\Organaizer\\Organaizer\\Organaizer\\wwwroot\\uploads\\organaizers\\7cb07e3c-e40b-4169-99a2-142df697bdc4download.jpeg",
+      "SourceId": "Organaizer",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\lenovo\\OneDrive\\Desktop\\Organaizer\\Organaizer\\Organaizer\\wwwroot\\",
+      "BasePath": "_content/Organaizer",
+      "RelativePath": "uploads/organaizers/7cb07e3c-e40b-4169-99a2-142df697bdc4download.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\organaizers\\7cb07e3c-e40b-4169-99a2-142df697bdc4download.jpeg"
+    },
+    {
       "Identity": "C:\\Users\\lenovo\\OneDrive\\Desktop\\Organaizer\\Organaizer\\Organaizer\\wwwroot\\uploads\\organaizers\\7daa9bd6-6c04-4982-99a9-dececd92128cScreenshot 2023-05-25 211537.png",
       "SourceId": "Organaizer",
       "SourceType": "Discovered",
@@ -6222,6 +6273,23 @@
       "OriginalItemSpec": "wwwroot\\uploads\\organaizers\\9762ddd6-f962-42c4-b998-0bcae0def7d6Screenshot 2023-05-22 011618.png"
     },
     {
+      "Identity": "C:\\Users\\lenovo\\OneDrive\\Desktop\\Organaizer\\Organaizer\\Organaizer\\wwwroot\\uploads\\organaizers\\976dce8a-b2ec-4e69-86ec-6ab4edb2a652download.jpeg",
+      "SourceId": "Organaizer",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\lenovo\\OneDrive\\Desktop\\Organaizer\\Organaizer\\Organaizer\\wwwroot\\",
+      "BasePath": "_content/Organaizer",
+      "RelativePath": "uploads/organaizers/976dce8a-b2ec-4e69-86ec-6ab4edb2a652download.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\organaizers\\976dce8a-b2ec-4e69-86ec-6ab4edb2a652download.jpeg"
+    },
+    {
       "Identity": "C:\\Users\\lenovo\\OneDrive\\Desktop\\Organaizer\\Organaizer\\Organaizer\\wwwroot\\uploads\\organaizers\\9a5a76e2-5605-4dbc-a923-3863b4e67252photoholgic-UPY_iepQt5c-unsplash.jpg",
       "SourceId": "Organaizer",
       "SourceType": "Discovered",
@@ -6392,6 +6460,23 @@
       "OriginalItemSpec": "wwwroot\\uploads\\organaizers\\c2250185-6860-4cd0-a4b5-dcd2a66bdd13Screenshot 2023-04-24 195006.png"
     },
     {
+      "Identity": "C:\\Users\\lenovo\\OneDrive\\Desktop\\Organaizer\\Organaizer\\Organaizer\\wwwroot\\uploads\\organaizers\\c2c4ae00-daa7-4783-a7e5-7425c3499510photoholgic-UPY_iepQt5c-unsplash.jpg",
+      "SourceId": "Organaizer",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\lenovo\\OneDrive\\Desktop\\Organaizer\\Organaizer\\Organaizer\\wwwroot\\",
+      "BasePath": "_content/Organaizer",
+      "RelativePath": "uploads/organaizers/c2c4ae00-daa7-4783-a7e5-7425c3499510photoholgic-UPY_iepQt5c-unsplash.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\organaizers\\c2c4ae00-daa7-4783-a7e5-7425c3499510photoholgic-UPY_iepQt5c-unsplash.jpg"
+    },
+    {
       "Identity": "C:\\Users\\lenovo\\OneDrive\\Desktop\\Organaizer\\Organaizer\\Organaizer\\wwwroot\\uploads\\organaizers\\cb9c0fe1-7d22-4a93-aec4-ac1a4070af22Screenshot 2023-06-12 195403.png",
       "SourceId": "Organaizer",
       "SourceType": "Discovered",
@@ -6526,6 +6611,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\organaizers\\db10bd40-aa61-4789-874b-6cbd7205811cMetroooooooooo.png"
+    },
+    {
+      "Identity": "C:\\Users\\lenovo\\OneDrive\\Desktop\\Organaizer\\Organaizer\\Organaizer\\wwwroot\\uploads\\organaizers\\db922519-a7b5-48ef-b450-803253418f95Screenshot 2023-02-18 005043.png",
+      "SourceId": "Organaizer",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\lenovo\\OneDrive\\Desktop\\Organaizer\\Organaizer\\Organaizer\\wwwroot\\",
+      "BasePath": "_content/Organaizer",
+      "RelativePath": "uploads/organaizers/db922519-a7b5-48ef-b450-803253418f95Screenshot 2023-02-18 005043.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\organaizers\\db922519-a7b5-48ef-b450-803253418f95Screenshot 2023-02-18 005043.png"
     },
     {
       "Identity": "C:\\Users\\lenovo\\OneDrive\\Desktop\\Organaizer\\Organaizer\\Organaizer\\wwwroot\\uploads\\organaizers\\e0e96d53-55a8-4c0a-9b73-ce9922ed29e4Screenshot 2023-05-22 011618.png",

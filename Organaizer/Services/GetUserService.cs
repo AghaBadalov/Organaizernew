@@ -22,7 +22,12 @@ namespace Organaizer.Services
                 return user;
             }
 
+
             return null;
+        }
+        public bool IsUserAuthenticated()
+        {
+            return _contextAccessor.HttpContext.User.Identity.IsAuthenticated;
         }
     }
 }

@@ -28,7 +28,7 @@ namespace Organaizer.Services
             email.Body = bodyBuilder.ToMessageBody();
             // send email
             using var smtp = new SmtpClient();
-            smtp.Connect("smtp.yandex.ru", 587, SecureSocketOptions.StartTls);
+            smtp.Connect("smtp.yandex.com", 587, SecureSocketOptions.StartTls);
             smtp.Authenticate("aghabadalov@yandex.com", "A1g2a3b4");
             smtp.Send(email);
             smtp.Disconnect(true);

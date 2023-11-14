@@ -1,34 +1,38 @@
 ﻿@using Organaizer.ViewModels
 @model HomeVM
-<section id="home-section" class="hero">
-    <div class="home-slider owl-carousel" style=" height:500px">
-        @foreach (Slider slider in Model.Sliders)
-        {
-            <div class="slider-item " style=" height:500px">
-            <div class="overlay"></div>
-            <div class="container-fluid p-0">
-                <div class="row d-md-flex no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
-                    <img class="one-third order-md-last img-fluid" src="~/uploads/sliders/@slider.ImageUrl" alt="">
-                    <div class="one-forth d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-                        <div class="text">
-                            <span class="subheading">#@slider.Card</span>
-                            <div class="horizontal">
-                                <h1 class="mb-4 mt-3">@slider.Name</h1>
-                                <p class="mb-4">@slider.Desc</p>
+@if (Model.Sliders.FirstOrDefault()!=null)
+{
+    <section id="home-section" class="hero">
+        <div class="home-slider owl-carousel" style=" height:500px">
+            @foreach (Slider slider in Model.Sliders)
+            {
+                <div class="slider-item " style=" height:500px">
+                    <div class="overlay"></div>
+                    <div class="container-fluid p-0">
+                        <div class="row d-md-flex no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
+                            <img class="one-third order-md-last img-fluid" src="~/uploads/sliders/@slider.ImageUrl" alt="">
+                            <div class="one-forth d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+                                <div class="text">
+                                    <span class="subheading">#@slider.Card</span>
+                                    <div class="horizontal">
+                                        <h1 class="mb-4 mt-3">@slider.Name</h1>
+                                        <p class="mb-4">@slider.Desc</p>
 
-                                <p><a asp-action="index" asp-controller="shop" class="btn-custom">Discover Now</a></p>
+                                        <p><a asp-action="discount" asp-controller="shop" class="btn-custom">Endirimli Məhsullar</a></p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-           </div>
-        }
+            }
 
-       
-    </div>
-</section>
 
+        </div>
+    </section>
+}
+
+@await Component.InvokeAsync("Shop");
 
 
 

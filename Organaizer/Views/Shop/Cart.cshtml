@@ -31,18 +31,50 @@
 											<div class="card-body">
 												<h5 class="card-title">@item.ProductName</h5>
 												<p class="card-text">Rəng: @item.Color</p>
-												<p class="card-text">
-												 Qiymət:      <span style="text-decoration: line-through;margin-left:5px;margin-right:7px;  ">@item.Price AZN     </span>      @item.ProductPrice AZN
-												</p>												
+												@if (item.Discount>0)
+												{
+													<p class="card-text">
+														Qiymət:      <span style="text-decoration: line-through;margin-left:5px;margin-right:7px;  ">@item.Price AZN     </span>      @item.ProductPrice AZN
+													</p>
+												}
+												else
+												{
+													<p class="card-text">
+														Qiymət:        @item.ProductPrice AZN
+													</p>
+												}
 
 
+												@if (item.Discount>0)
+												{
+													<p class="card-text">Endirim: @item.Discount %</p>
 
-												<p class="card-text">Endirim: @item.Discount %</p>
+												}
+												<div style="display: flex; align-items: center;">
+													<p class="card-text">
+														Say:
+													</p>
+													<a style="max-width:30px;  margin-left:20px" asp-action="minus" asp-controller="shop" asp-route-id="@item.OrganaizerModelId" class="btn btn-primary mr-2">-</a>
+													<span class="mr-2">@item.ProductCount</span>
+													@if(item.ProductCount<10 && item.ProductCount<item.OrganaizerCount){
+														<a style="max-width:30px;" asp-action="plus" asp-controller="shop" asp-route-id="@item.OrganaizerModelId" class="btn btn-primary">+</a>
+													}
+												</div>
+												
 
-												<p class="card-text">Say: @item.ProductCount ədəd</p>
-												<p class="card-text">
-													Ümumi Qiymət:      <span style="text-decoration: line-through;margin-left:5px;margin-right:7px;">@item.TotalPrice AZN</span>@item.ProductTotal AZN
-												</p>
+												<a asp-action="delete" asp-controller="shop" asp-route-id="@item.OrganaizerModelId" class="btn btn-danger" style="cursor:pointer; position:relative; bottom:200px; left:270px;">Sil</a>
+												@if (item.Discount>0)
+												{
+													<p class="card-text">
+														Ümumi Qiymət:      <span style="text-decoration: line-through;margin-left:5px;margin-right:7px;">@item.TotalPrice AZN</span>@item.ProductTotal AZN
+													</p>
+												}
+												else
+												{
+													<p class="card-text">
+														Ümumi Qiymət:    @item.ProductTotal AZN
+													</p>
+												}
 											</div>
 										</div>
 									</div>
@@ -61,9 +93,18 @@
 						<h3>Ümumi  Səbət</h3>
 				
 						
-					<p class="card-text">
-					Qiymət:<span style="text-decoration: line-through;margin-left:50px;margin-right:7px;">@Model.LTotal AZN</span>@Model.Total AZN
-					</p>
+					@if (@Model.LTotal>Model.Total)
+					{
+						<p class="card-text">
+							Qiymət:<span style="text-decoration: line-through;margin-left:50px;margin-right:7px;">@Model.LTotal AZN</span>@Model.Total AZN
+						</p>
+					}
+					else
+					{
+						<p class="card-text">
+							Qiymət: @Model.Total AZN
+						</p>
+					}
 					</div>
 					<p class="text-center"><a href="checkout.html" class="btn btn-primary py-3 px-4">Proceed to Checkout</a></p>
 			</div>

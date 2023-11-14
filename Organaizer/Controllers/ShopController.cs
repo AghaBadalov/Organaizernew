@@ -22,6 +22,10 @@ namespace Organaizer.Controllers
         {
             return View();
         }
+        public IActionResult Discount()
+        {
+            return View();
+        }
         public IActionResult Detail(int id)
         {
             OrganaizerModel org=_context.Organaizers.Include(x=>x.OrganaizerImages).FirstOrDefault(x => x.Id == id);
@@ -68,7 +72,7 @@ namespace Organaizer.Controllers
 
 
 
-            return RedirectToAction("index","home");
+            return RedirectToAction("index","shop");
         }
         public async Task<IActionResult> Cart()
         {
@@ -94,7 +98,8 @@ namespace Organaizer.Controllers
                     ProductCount = x.Count,
                     ImageUrl = x.OrganaizerModel.OrganaizerImages.FirstOrDefault(a => a.OrganaizerModelId == x.OrganaizerModelId).ImageUrl,
                     ProductTotal = (x.Count * x.OrganaizerModel.LPrice).Value,
-                    ProductName=x.OrganaizerModel.Name
+                    ProductName=x.OrganaizerModel.Name,
+                    OrganaizerCount=x.OrganaizerModel.Count
                     
                 }
             ).ToList();
@@ -104,7 +109,107 @@ namespace Organaizer.Controllers
 
 
             return View(cartViewModel);
-            ;        }
+            ;        
+        }
+        public async Task<IActionResult> Minus(int id)
+        {
+            if (!_userService.IsUserAuthenticated())
+            {
+                return RedirectToAction("login", "account");
+            }
+            var user = await _userService.GetUser();
+            var basket = _context.Baskets.FirstOrDefault(x => x.AppUserId == user.Id);
+            if (basket is null)
+            {
+                return View("error");
+            }
+            var org = _context.Organaizers.FirstOrDefault(x => x.Id == id);
+            if (org is null) return View("error");
+            BasketItem basketItem = _context.BasketItems.FirstOrDefault(x => x.OrganaizerModelId == org.Id && x.Basket == basket);
+            if (basketItem is null)
+            {
+                return View("error");
+            }
+            if (basketItem.Count > 1)
+            {
+                basketItem.Count -= 1;
+            }
+            else if(basketItem.Count == 1)
+            {
+                _context.Remove(basketItem);
+                
+            }
+            else if(basketItem.Count<1)
+            {
+                return View("error");
+            }
+            
+            
+            
+            _context.SaveChanges();
+
+            return RedirectToAction("Cart");
+        }
+        public async Task<IActionResult> Plus(int id)
+        {
+            if (!_userService.IsUserAuthenticated())
+            {
+                return RedirectToAction("login", "account");
+            }
+            var user = await _userService.GetUser();
+            var basket = _context.Baskets.FirstOrDefault(x => x.AppUserId == user.Id);
+            if (basket is null)
+            {
+                return View("error");
+            }
+            var org = _context.Organaizers.FirstOrDefault(x => x.Id == id);
+            if (org is null) return View("error");
+            BasketItem basketItem = _context.BasketItems.FirstOrDefault(x => x.OrganaizerModelId == org.Id && x.Basket == basket);
+            if (basketItem is null)
+            {
+                return View("error");
+            }
+            if (basketItem.Count >= 1 && basketItem.Count <10)
+            {
+                basketItem.Count += 1;
+            }
+            else if (basketItem.Count >= 10 || basketItem.Count > org.Count)
+            {
+                return View("error");
+
+            }
+            
+
+
+
+            _context.SaveChanges();
+
+            return RedirectToAction("Cart");
+        }
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            if (!_userService.IsUserAuthenticated())
+            {
+                return RedirectToAction("login", "account");
+            }
+            var user = await _userService.GetUser();
+            var basket = _context.Baskets.FirstOrDefault(x => x.AppUserId == user.Id);
+            if (basket is null)
+            {
+                return View("error");
+            }
+            var org = _context.Organaizers.FirstOrDefault(x => x.Id == id);
+            if (org is null) return View("error");
+            BasketItem basketItem = _context.BasketItems.FirstOrDefault(x => x.OrganaizerModelId == org.Id && x.Basket == basket);
+            if (basketItem is null)
+            {
+                return View("error");
+            }
+            _context.Remove(basketItem);
+            _context.SaveChanges();
+            return RedirectToAction("cart");
+        }
 
     }
 }

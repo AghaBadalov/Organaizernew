@@ -12,6 +12,7 @@ namespace Organaizer.ViewModels
         {
             public int OrganaizerModelId { get; set; }
             public string OrganaizerName { get; set; }
+            public int OrganaizerCount { get; set; }
             public string Color { get; set; }
 
             public string ProductName { get; set; }
